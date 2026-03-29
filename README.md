@@ -10,17 +10,6 @@
     <meta property="og:description" content="Play 100+ free games on SZ GAMES. Action, puzzle, adventure, strategy and sports games available.">
     <meta property="og:type" content="website">
     <title>SZ GAMES - Play 100+ Free Online Games</title>
-    <!-- Adsterra Ad Code -->
-    <script>
-      atOptions = {
-        'key' : '6d5fc2bb86a2405e48f209077365fea6',
-        'format' : 'iframe',
-        'height' : 90,
-        'width' : 728,
-        'params' : {}
-      };
-    </script>
-    <script src="https://www.highperformanceformat.com/6d5fc2bb86a2405e48f209077365fea6/invoke.js"></script>
     <style>
         * {
             margin: 0;
@@ -604,6 +593,33 @@
             font-size: 1.3em;
         }
 
+        .sidebar-ads {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .sidebar-ad {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            background: rgba(26, 31, 58, 0.6);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-ads {
+                flex-direction: column;
+            }
+            .sidebar-ad {
+                min-width: 100%;
+            }
+        }
+
         @media (max-width: 768px) {
             .logo {
                 font-size: 2.2em;
@@ -675,7 +691,7 @@
             <button class="filter-btn" onclick="filterCategory('Strategy')">♟️ Strategy</button>
             <button class="filter-btn" onclick="filterCategory('Sports')">⚽ Sports</button>
         </div>
-        <!-- Adsterra Ad Below Filter -->
+        <!-- Adsterra Ad Below Filter - 728x90 -->
         <div style="text-align: center; padding: 15px 0; background: rgba(26, 31, 58, 0.4); margin-top: 10px; border-radius: 8px;">
             <script>
               atOptions = {
@@ -692,6 +708,22 @@
 
     <!-- Main Container -->
     <div class="container">
+        <!-- Sidebar Ads - Left 300x250 -->
+        <div class="sidebar-ads">
+            <div class="sidebar-ad">
+                <script>
+                  atOptions = {
+                    'key' : '1b4d620c3fc6e922c60f64d3efe6910f',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highperformanceformat.com/1b4d620c3fc6e922c60f64d3efe6910f/invoke.js"></script>
+            </div>
+        </div>
+
         <!-- Home Page -->
         <div id="home" class="page active">
             <div class="games-grid" id="gamesGrid"></div>
@@ -851,6 +883,20 @@
                 <p>Our platform may contain links to third-party websites. We are not responsible for their privacy practices. We recommend reviewing their privacy policies before providing information.</p>
             </div>
         </div>
+    </div>
+
+    <!-- Right Sidebar Ad - 300x250 Fixed -->
+    <div style="position: fixed; right: 20px; top: 300px; z-index: 50; background: rgba(26, 31, 58, 0.8); border: 2px solid var(--border); border-radius: 10px; padding: 15px;" id="rightAd" class="right-sidebar-ad">
+        <script>
+          atOptions = {
+            'key' : '1b4d620c3fc6e922c60f64d3efe6910f',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/1b4d620c3fc6e922c60f64d3efe6910f/invoke.js"></script>
     </div>
 
     <!-- Game Modal -->

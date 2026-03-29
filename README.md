@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,6 +38,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
+            padding-top: 280px;
         }
 
         body::before {
@@ -61,9 +61,16 @@
             padding: 40px 20px;
             text-align: center;
             box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .header.hide {
+            transform: translateY(-100%);
         }
 
         .header-content {
@@ -81,6 +88,13 @@
             text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
             margin-bottom: 10px;
             letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
         }
 
         .tagline {
@@ -95,9 +109,21 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             padding: 0;
-            position: sticky;
-            top: 100px;
+            position: fixed;
+            top: 180px;
+            left: 0;
+            right: 0;
             z-index: 99;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-wrapper.hide {
+            transform: translateY(-100%);
+        }
+
+        body {
+            padding-top: 280px;
+        }
         }
 
         .nav-container {
@@ -167,13 +193,24 @@
         }
 
         .filter-wrapper {
-            background: rgba(26, 31, 58, 0.6);
+            background: rgba(26, 31, 58, 0.8);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
-            padding: 15px 20px;
-            position: sticky;
-            top: 160px;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 180px;
+            left: 0;
+            right: 0;
             z-index: 98;
+            transition: transform 0.3s ease;
+        }
+
+        .filter-wrapper.hide {
+            transform: translateY(-100%);
         }
 
         .filter-container {
@@ -594,29 +631,34 @@
         }
 
         .sidebar-ads {
-            display: flex;
-            gap: 20px;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            display: none;
         }
 
         .sidebar-ad {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-            background: rgba(26, 31, 58, 0.6);
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            padding: 15px;
+            display: none;
         }
 
-        @media (max-width: 768px) {
-            .sidebar-ads {
-                flex-direction: column;
-            }
-            .sidebar-ad {
-                min-width: 100%;
+        .side-ad {
+            position: fixed;
+            top: 200px;
+            z-index: 50;
+            background: rgba(26, 31, 58, 0.9);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .side-ad-left {
+            left: 10px;
+        }
+
+        .side-ad-right {
+            right: 10px;
+        }
+
+        @media (max-width: 1024px) {
+            .side-ad {
+                display: none;
             }
         }
 
@@ -661,7 +703,7 @@
     <!-- Header -->
     <div class="header">
         <div class="header-content">
-            <div class="logo">🎮 SZ GAMES 🎮</div>
+            <div class="logo" onclick="navigateTo('home')" style="cursor: pointer;">🎮 SZ GAMES 🎮</div>
             <div class="tagline">Play 100+ Free Online Games - No Downloads Required</div>
         </div>
     </div>
@@ -708,20 +750,18 @@
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Sidebar Ads - Left 300x250 -->
-        <div class="sidebar-ads">
-            <div class="sidebar-ad">
-                <script>
-                  atOptions = {
-                    'key' : '1b4d620c3fc6e922c60f64d3efe6910f',
-                    'format' : 'iframe',
-                    'height' : 250,
-                    'width' : 300,
-                    'params' : {}
-                  };
-                </script>
-                <script src="https://www.highperformanceformat.com/1b4d620c3fc6e922c60f64d3efe6910f/invoke.js"></script>
-            </div>
+        <!-- Sidebar Ads - Left 160x600 -->
+        <div class="side-ad side-ad-left">
+            <script>
+              atOptions = {
+                'key' : '6f5634b1298ddda613ff864793ada29e',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/6f5634b1298ddda613ff864793ada29e/invoke.js"></script>
         </div>
 
         <!-- Home Page -->
@@ -885,18 +925,18 @@
         </div>
     </div>
 
-    <!-- Right Sidebar Ad - 300x250 Fixed -->
-    <div style="position: fixed; right: 20px; top: 300px; z-index: 50; background: rgba(26, 31, 58, 0.8); border: 2px solid var(--border); border-radius: 10px; padding: 15px;" id="rightAd" class="right-sidebar-ad">
+    <!-- Right Sidebar Ad - 160x600 Fixed -->
+    <div class="side-ad side-ad-right">
         <script>
           atOptions = {
-            'key' : '1b4d620c3fc6e922c60f64d3efe6910f',
+            'key' : '6f5634b1298ddda613ff864793ada29e',
             'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
+            'height' : 600,
+            'width' : 160,
             'params' : {}
           };
         </script>
-        <script src="https://www.highperformanceformat.com/1b4d620c3fc6e922c60f64d3efe6910f/invoke.js"></script>
+        <script src="https://www.highperformanceformat.com/6f5634b1298ddda613ff864793ada29e/invoke.js"></script>
     </div>
 
     <!-- Game Modal -->
@@ -1167,6 +1207,30 @@
             if (category) {
                 filterCategory(category);
             }
+        });
+
+        // Auto-hide header on scroll
+        let lastScrollTop = 0;
+        const header = document.querySelector('.header');
+        const navWrapper = document.querySelector('.nav-wrapper');
+        const filterWrapper = document.querySelector('.filter-wrapper');
+
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (currentScroll > lastScrollTop) {
+                // Scrolling DOWN - hide header
+                header.classList.add('hide');
+                navWrapper.classList.add('hide');
+                filterWrapper.classList.add('hide');
+            } else {
+                // Scrolling UP - show header
+                header.classList.remove('hide');
+                navWrapper.classList.remove('hide');
+                filterWrapper.classList.remove('hide');
+            }
+            
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
 
         renderGames();

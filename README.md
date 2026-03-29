@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -75,13 +74,37 @@
         }
 
         .header {
-            padding: 30px 20px;
+            padding: 20px 20px;
             text-align: center;
         }
 
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            fill: url(#logo-gradient);
+            filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.5));
         }
 
         .logo {
@@ -92,15 +115,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-            margin-bottom: 10px;
             letter-spacing: 2px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-            text-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
         }
 
         .tagline {
@@ -644,6 +659,11 @@
                 font-size: 2.2em;
             }
 
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+
             .games-grid {
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
                 gap: 15px;
@@ -677,12 +697,39 @@
     </style>
 </head>
 <body>
+    <!-- SVG Gradient Definition -->
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00d4ff" />
+            <stop offset="100%" stop-color="#ff006e" />
+        </linearGradient>
+    </svg>
+
     <!-- Combined Fixed Container -->
     <div class="fixed-header-container" id="mainHeader">
+        <!-- Adsterra Ad at the very top -->
+        <div style="text-align: center; padding: 10px 0; background: rgba(26, 31, 58, 0.4); border-bottom: 1px solid var(--border);">
+            <script>
+              atOptions = {
+                'key' : '6d5fc2bb86a2405e48f209077365fea6',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/6d5fc2bb86a2405e48f209077365fea6/invoke.js"></script>
+        </div>
+
         <!-- Header -->
         <div class="header">
             <div class="header-content">
-                <div class="logo" onclick="showPage('home')" style="cursor: pointer;">🎮 SZ GAMES 🎮</div>
+                <div class="logo-container" onclick="showPage('home')">
+                    <svg class="logo-icon" viewBox="0 0 24 24">
+                        <path d="M21,6H3C1.9,6,1,6.9,1,8v8c0,1.1,0.9,2,2,2h18c1.1,0,2-0.9,2-2V8C23,6.9,22.1,6,21,6z M11,15H9v-2H7v-2h2V9h2v2h2v2h-2V15z M16.5,15c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S17.3,15,16.5,15z M19.5,12c-0.8,0-1.5-0.7-1.5-1.5 s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S20.3,12,19.5,12z"/>
+                    </svg>
+                    <div class="logo">SZ GAMES</div>
+                </div>
                 <div class="tagline">Play 100+ Free Online Games - No Downloads Required</div>
             </div>
         </div>
@@ -711,19 +758,6 @@
                 <button class="filter-btn" onclick="filterCategory('Adventure')">🗺️ Adventure</button>
                 <button class="filter-btn" onclick="filterCategory('Strategy')">♟️ Strategy</button>
                 <button class="filter-btn" onclick="filterCategory('Sports')">⚽ Sports</button>
-            </div>
-            <!-- Adsterra Ad Below Filter - 728x90 -->
-            <div style="text-align: center; padding: 15px 0; background: rgba(26, 31, 58, 0.4); margin-top: 10px; border-radius: 8px;">
-                <script>
-                  atOptions = {
-                    'key' : '6d5fc2bb86a2405e48f209077365fea6',
-                    'format' : 'iframe',
-                    'height' : 90,
-                    'width' : 728,
-                    'params' : {}
-                  };
-                </script>
-                <script src="https://www.highperformanceformat.com/6d5fc2bb86a2405e48f209077365fea6/invoke.js"></script>
             </div>
         </div>
     </div>

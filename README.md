@@ -1,5 +1,6 @@
 <html lang="en">
 <head>
+    <meta name="google-site-verification" content="iNLP5cp2ovjMTi5QvEe5JaMz7EpHTZwCIPSk6s-Yjnw" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SZ GAMES - Play 100+ free online games including action, puzzle, adventure, strategy and sports games. No downloads required!">

@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="iNLP5cp2ovjMTi5QvEe5JaMz7EpHTZwCIPSk6s-Yjnw" />
     <meta name="description" content="SZ GAMES - Play 100+ free online games including action, puzzle, adventure, strategy and sports games. No downloads required!">
     <meta name="keywords" content="free games, online games, play games, SZ GAMES, game portal">
     <meta name="author" content="SZ GAMES">
@@ -9,8 +10,6 @@
     <meta property="og:description" content="Play 100+ free games on SZ GAMES. Action, puzzle, adventure, strategy and sports games available.">
     <meta property="og:type" content="website">
     <title>SZ GAMES - Play 100+ Free Online Games</title>
-        <meta name="google-site-verification" content="iNLP5cp2ovjMTi5QvEe5JaMz7EpHTZwCIPSk6s-Yjnw" />
-
     <style>
         * {
             margin: 0;
@@ -344,83 +343,67 @@
             margin-bottom: 15px;
         }
 
-        .game-card-category {
-            display: inline-block;
-            padding: 5px 12px;
-            background: rgba(255, 0, 110, 0.1);
-            border: 1px solid var(--highlight);
-            color: var(--highlight);
-            border-radius: 15px;
-            font-size: 0.8em;
-            font-weight: 600;
+        .game-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
         }
 
-        .play-button {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 20px;
+        .game-category {
+            font-size: 0.8em;
+            color: var(--highlight);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .play-btn {
+            padding: 8px 16px;
             background: var(--accent);
             color: var(--primary);
-            border: none;
-            border-radius: 25px;
+            border-radius: 20px;
             font-weight: 700;
-            cursor: pointer;
+            font-size: 0.85em;
             transition: all 0.3s;
-            opacity: 0;
-            transform: translateX(20px);
         }
 
-        .game-card:hover .play-button {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .play-button:hover {
-            background: white;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
-        }
-
-        /* Modal Styles */
+        /* Modal / Game Player */
         .modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: rgba(10, 14, 39, 0.98);
-            z-index: 2000;
-            display: none;
-            justify-content: center;
-            align-items: center;
+            z-index: 1000;
             backdrop-filter: blur(10px);
         }
 
-        .modal.active {
-            display: flex;
-        }
-
         .modal-content {
+            position: relative;
             width: 95%;
-            max-width: 1000px;
-            height: 90vh;
+            max-width: 1200px;
+            height: 85vh;
+            margin: 2.5vh auto;
             background: var(--secondary);
             border: 2px solid var(--accent);
             border-radius: 20px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
             overflow: hidden;
             box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+            display: flex;
+            flex-direction: column;
         }
 
         .modal-header {
-            padding: 20px;
+            padding: 15px 25px;
             background: var(--primary);
-            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 2px solid var(--border);
         }
 
         .modal-title {
@@ -430,48 +413,40 @@
         }
 
         .close-modal {
-            background: var(--highlight);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            font-size: 2em;
+            color: var(--text-muted);
             cursor: pointer;
-            font-size: 1.5em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
+            transition: color 0.3s;
         }
 
         .close-modal:hover {
-            transform: rotate(90deg) scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+            color: var(--highlight);
         }
 
-        #gameContainer {
+        .game-frame-container {
             flex: 1;
-            background: #000;
             position: relative;
+            background: #000;
         }
 
-        .gamepix-responsive {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .gamepix-responsive iframe {
+        iframe {
             width: 100%;
             height: 100%;
             border: none;
+        }
+
+        .game-info-bar {
+            padding: 15px 25px;
+            background: var(--primary);
+            border-top: 2px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         /* Content Pages */
         .content-page {
-            background: rgba(26, 31, 58, 0.6);
+            background: rgba(26, 31, 58, 0.8);
             border: 2px solid var(--border);
             border-radius: 20px;
             padding: 40px;
@@ -483,22 +458,21 @@
             font-size: 2.5em;
             margin-bottom: 25px;
             border-bottom: 2px solid var(--accent);
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             display: inline-block;
-        }
-
-        .content-page h3 {
-            color: var(--highlight);
-            font-size: 1.6em;
-            margin-top: 30px;
-            margin-bottom: 15px;
         }
 
         .content-page p {
             line-height: 1.8;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
             color: var(--text);
-            font-size: 1.05em;
+        }
+
+        .content-page h3 {
+            color: var(--highlight);
+            font-size: 1.5em;
+            margin: 30px 0 15px 0;
         }
 
         .content-page ul {
@@ -789,20 +763,14 @@
         <div id="about" class="page">
             <div class="content-page">
                 <h2>About SZ GAMES</h2>
-                <p>Welcome to SZ GAMES - your ultimate destination for free online gaming! We're a premier gaming platform dedicated to providing the best gaming experience to millions of players worldwide.</p>
-                
-                <h3>What We Offer</h3>
-                <p>SZ GAMES brings you 100+ free games across multiple categories. Whether you're looking for action-packed adventures, mind-bending puzzles, strategic challenges, sports games, or thrilling explorations, we have something for everyone.</p>
-                
-                <h3>Our Mission</h3>
-                <p>Our mission is simple: to make high-quality gaming accessible to everyone, everywhere, for free. We believe that gaming is a powerful way to relax, learn, and connect with others.</p>
-                
-                <h3>Why Choose Us?</h3>
+                <p>Welcome to SZ GAMES - your ultimate destination for free online gaming! We're a premier game portal dedicated to bringing you the best HTML5 games from across the web, all playable directly in your browser with no downloads or registrations required.</p>
+                <p>Our mission is to provide high-quality entertainment for everyone, whether you're looking for a quick 5-minute break or an immersive gaming session. We carefully curate our collection to ensure every game meets our standards for fun and quality.</p>
+                <h3>Why Play at SZ GAMES?</h3>
                 <ul>
                     <li><strong>100% Free:</strong> All our games are completely free to play.</li>
-                    <li><strong>No Downloads:</strong> Play directly in your browser without any installation.</li>
-                    <li><strong>Safe & Secure:</strong> We prioritize user safety and privacy.</li>
-                    <li><strong>New Games:</strong> We regularly update our collection with fresh titles.</li>
+                    <li><strong>No Downloads:</strong> Play instantly in your browser on any device.</li>
+                    <li><strong>Diverse Categories:</strong> From high-octane action to brain-teasing puzzles.</li>
+                    <li><strong>Safe Gaming:</strong> A family-friendly environment for players of all ages.</li>
                 </ul>
             </div>
         </div>
@@ -811,26 +779,21 @@
         <div id="contact" class="page">
             <div class="content-page">
                 <h2>Contact Us</h2>
-                <p>Have questions, suggestions, or feedback? We'd love to hear from you! Our team is always here to help and improve your gaming experience.</p>
-                
+                <p>Have questions, feedback, or game suggestions? We'd love to hear from you! Reach out to the SZ GAMES team using the form below.</p>
                 <div class="contact-form">
                     <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" placeholder="Enter your name">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your Name">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="Enter your email">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" placeholder="What is this about?">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your Email">
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" placeholder="Your message here..."></textarea>
+                        <textarea id="message" placeholder="How can we help you?"></textarea>
                     </div>
-                    <button class="submit-btn" onclick="submitForm()">Send Message</button>
+                    <button class="submit-btn" onclick="alert('Thank you for your message! This is a demo form.')">Send Message</button>
                 </div>
             </div>
         </div>
@@ -839,19 +802,15 @@
         <div id="privacy" class="page">
             <div class="content-page">
                 <h2>Privacy Policy</h2>
-                <p>Last Updated: March 2024</p>
-                
-                <h3>Information We Collect</h3>
-                <p>At SZ GAMES, we value your privacy. We do not require user registration, so we don't collect personal information like names or addresses unless you contact us directly.</p>
-                
+                <p>At SZ GAMES, we take your privacy seriously. This policy explains how we handle information when you use our website.</p>
+                <h3>Information Collection</h3>
+                <p>We do not require users to create accounts or provide personal information to play our games. We may collect non-personal data such as browser type and device information to improve our services.</p>
                 <h3>Cookies</h3>
-                <p>We use cookies to enhance your experience, remember your preferences, and analyze our traffic. You can choose to disable cookies through your browser settings.</p>
-                
-                <h3>Third-Party Services</h3>
-                <p>We use third-party advertising services (like Adsterra) to serve ads when you visit our website. These companies may use information about your visits to this and other websites in order to provide advertisements about goods and services of interest to you.</p>
-                
-                <h3>Children's Privacy</h3>
-                <p>Our website is designed for a general audience. We do not knowingly collect any personal information from children under the age of 13.</p>
+                <p>We use cookies to remember your preferences and analyze our traffic. Third-party advertisers on our site may also use cookies to serve personalized ads.</p>
+                <h3>Third-Party Links</h3>
+                <p>Our site contains links to other websites. We are not responsible for the privacy practices or content of these external sites.</p>
+                <h3>Updates</h3>
+                <p>We may update this policy from time to time. Any changes will be posted on this page.</p>
             </div>
         </div>
 
@@ -875,9 +834,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title" id="modalTitle">Game Title</div>
-                <button class="close-modal" onclick="closeGame()">×</button>
+                <div class="close-modal" onclick="closeGame()">&times;</div>
             </div>
-            <div id="gameContainer"></div>
+            <div class="game-frame-container">
+                <iframe id="gameFrame" src="" allowfullscreen></iframe>
+            </div>
+            <div class="game-info-bar">
+                <div id="modalCategory" class="game-category">CATEGORY</div>
+                <button class="play-btn" onclick="toggleFullScreen()">Full Screen</button>
+            </div>
         </div>
     </div>
 
@@ -885,10 +850,10 @@
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 SZ GAMES. All rights reserved.</p>
-            <p>Play the best free online games on any device!</p>
+            <p>Providing the best free online gaming experience since 2024.</p>
             <div class="footer-links">
                 <a onclick="showPage('home')">Home</a>
-                <a onclick="showPage('about')">About Us</a>
+                <a onclick="showPage('about')">About</a>
                 <a onclick="showPage('contact')">Contact</a>
                 <a onclick="showPage('privacy')">Privacy Policy</a>
             </div>
@@ -896,269 +861,152 @@
     </footer>
 
     <script>
+        // Game Data
         const games = [
-            // ACTION GAMES (1-20)
-            {id: 1, name: 'Cyber Runner', category: 'Action', description: 'Run through a futuristic city', embedUrl: 'https://play.gamepix.com/cyber-runner/embed?sid=EE698', emoji: '🏃‍♂️'},
-            {id: 2, name: 'Space Shooter', category: 'Action', description: 'Defend the galaxy from aliens', embedUrl: 'https://play.gamepix.com/space-shooter/embed?sid=EE698', emoji: '🚀'},
-            {id: 3, name: 'Ninja Strike', category: 'Action', description: 'Master the art of stealth', embedUrl: 'https://play.gamepix.com/ninja-strike/embed?sid=EE698', emoji: '🥷'},
-            {id: 4, name: 'Tank Wars', category: 'Action', description: 'Epic tank battles', embedUrl: 'https://play.gamepix.com/tank-wars/embed?sid=EE698', emoji: '🚜'},
-            {id: 5, name: 'Zombie Survival', category: 'Action', description: 'Survive the apocalypse', embedUrl: 'https://play.gamepix.com/zombie-survival/embed?sid=EE698', emoji: '🧟'},
-            {id: 6, name: 'Combat Strike', category: 'Action', description: 'Fast-paced FPS action', embedUrl: 'https://play.gamepix.com/combat-strike/embed?sid=EE698', emoji: '🔫'},
-            {id: 7, name: 'Street Fighter', category: 'Action', description: 'Classic fighting game', embedUrl: 'https://play.gamepix.com/street-fighter/embed?sid=EE698', emoji: '🥊'},
-            {id: 8, name: 'Alien Invasion', category: 'Action', description: 'Stop the alien invasion', embedUrl: 'https://play.gamepix.com/alien-invasion/embed?sid=EE698', emoji: '👽'},
-            {id: 9, name: 'Robot Wars', category: 'Action', description: 'Battle of the machines', embedUrl: 'https://play.gamepix.com/robot-wars/embed?sid=EE698', emoji: '🤖'},
-            {id: 10, name: 'Super Hero', category: 'Action', description: 'Save the city from villains', embedUrl: 'https://play.gamepix.com/super-hero/embed?sid=EE698', emoji: '🦸‍♂️'},
-            {id: 11, name: 'Dragon Slayer', category: 'Action', description: 'Hunt legendary dragons', embedUrl: 'https://play.gamepix.com/dragon-slayer/embed?sid=EE698', emoji: '🐉'},
-            {id: 12, name: 'Pirate Adventure', category: 'Action', description: 'Sail the high seas', embedUrl: 'https://play.gamepix.com/pirate-adventure/embed?sid=EE698', emoji: '🏴‍☠️'},
-            {id: 13, name: 'Monster Hunter', category: 'Action', description: 'Track and hunt monsters', embedUrl: 'https://play.gamepix.com/monster-hunter/embed?sid=EE698', emoji: '👹'},
-            {id: 14, name: 'Sword Master', category: 'Action', description: 'Master the blade', embedUrl: 'https://play.gamepix.com/sword-master/embed?sid=EE698', emoji: '⚔️'},
-            {id: 15, name: 'Archer Hero', category: 'Action', description: 'Become the ultimate archer', embedUrl: 'https://play.gamepix.com/archer-hero/embed?sid=EE698', emoji: '🏹'},
-            {id: 16, name: 'Viking Quest', category: 'Action', description: 'Epic Viking battles', embedUrl: 'https://play.gamepix.com/viking-quest/embed?sid=EE698', emoji: '🛡️'},
-            {id: 17, name: 'Samurai Jack', category: 'Action', description: 'Way of the samurai', embedUrl: 'https://play.gamepix.com/samurai-jack/embed?sid=EE698', emoji: '🗡️'},
-            {id: 18, name: 'Bounty Hunter', category: 'Action', description: 'Catch the most wanted', embedUrl: 'https://play.gamepix.com/bounty-hunter/embed?sid=EE698', emoji: '🤠'},
-            {id: 19, name: 'Galactic War', category: 'Action', description: 'War in deep space', embedUrl: 'https://play.gamepix.com/galactic-war/embed?sid=EE698', emoji: '🌌'},
-            {id: 20, name: 'Dungeon Master', category: 'Action', description: 'Explore dark dungeons', embedUrl: 'https://play.gamepix.com/dungeon-master/embed?sid=EE698', emoji: '🗝️'},
-
-            // PUZZLE GAMES (21-40)
-            {id: 21, name: 'Candy Match', category: 'Puzzle', description: 'Match 3 candies to win', embedUrl: 'https://play.gamepix.com/candy-match/embed?sid=EE698', emoji: '🍬'},
-            {id: 22, name: 'Bubble Shooter', category: 'Puzzle', description: 'Pop all the bubbles', embedUrl: 'https://play.gamepix.com/bubble-shooter/embed?sid=EE698', emoji: '🫧'},
-            {id: 23, name: '2048', category: 'Puzzle', description: 'Reach the 2048 tile', embedUrl: 'https://play.gamepix.com/2048/embed?sid=EE698', emoji: '🔢'},
-            {id: 24, name: 'Jewel Quest', category: 'Puzzle', description: 'Match precious jewels', embedUrl: 'https://play.gamepix.com/jewel-quest/embed?sid=EE698', emoji: '💎'},
-            {id: 25, name: 'Mahjong', category: 'Puzzle', description: 'Classic tile matching', embedUrl: 'https://play.gamepix.com/mahjong/embed?sid=EE698', emoji: '🀄'},
-            {id: 26, name: 'Word Connect', category: 'Puzzle', description: 'Find hidden words', embedUrl: 'https://play.gamepix.com/word-connect/embed?sid=EE698', emoji: '🔤'},
-            {id: 27, name: 'Sudoku', category: 'Puzzle', description: 'Solve number puzzles', embedUrl: 'https://play.gamepix.com/sudoku/embed?sid=EE698', emoji: '🔤'},
-            {id: 28, name: 'Jigsaw Puzzle', category: 'Puzzle', description: 'Complete jigsaw puzzles', embedUrl: 'https://play.gamepix.com/jigsaw/embed?sid=EE698', emoji: '🧩'},
-            {id: 29, name: 'Block Blast', category: 'Puzzle', description: 'Blast blocks and clear the board', embedUrl: 'https://play.gamepix.com/block-blast/embed?sid=EE698', emoji: '💥'},
-            {id: 30, name: 'Connect Dots', category: 'Puzzle', description: 'Connect dots to create patterns', embedUrl: 'https://play.gamepix.com/connect-dots/embed?sid=EE698', emoji: '⚫'},
-            {id: 31, name: 'Pipe Master', category: 'Puzzle', description: 'Connect pipes to complete the circuit', embedUrl: 'https://play.gamepix.com/pipe-master/embed?sid=EE698', emoji: '🔧'},
-            {id: 32, name: 'Color Match', category: 'Puzzle', description: 'Match colors and complete levels', embedUrl: 'https://play.gamepix.com/color-match/embed?sid=EE698', emoji: '🎨'},
-            {id: 33, name: 'Shape Fit', category: 'Puzzle', description: 'Fit shapes into the grid', embedUrl: 'https://play.gamepix.com/shape-fit/embed?sid=EE698', emoji: '⬜'},
-            {id: 34, name: 'Word Search', category: 'Puzzle', description: 'Find hidden words in the grid', embedUrl: 'https://play.gamepix.com/word-search/embed?sid=EE698', emoji: '📝'},
-            {id: 35, name: 'Crossword', category: 'Puzzle', description: 'Solve crossword puzzles', embedUrl: 'https://play.gamepix.com/crossword/embed?sid=EE698', emoji: '✏️'},
-            {id: 36, name: 'Sliding Puzzle', category: 'Puzzle', description: 'Slide tiles to complete the picture', embedUrl: 'https://play.gamepix.com/sliding-puzzle/embed?sid=EE698', emoji: '🖼️'},
-            {id: 37, name: 'Ice Cream Match', category: 'Puzzle', description: 'Match ice cream flavors', embedUrl: 'https://play.gamepix.com/ice-cream-match/embed?sid=EE698', emoji: '🍦'},
-            {id: 38, name: 'Gem Swap', category: 'Puzzle', description: 'Swap gems to make matches', embedUrl: 'https://play.gamepix.com/gem-swap/embed?sid=EE698', emoji: '💎'},
-            {id: 39, name: 'Number Puzzle', category: 'Puzzle', description: 'Solve number-based puzzles', embedUrl: 'https://play.gamepix.com/number-puzzle/embed?sid=EE698', emoji: '🔢'},
-            {id: 40, name: 'Brain Teaser', category: 'Puzzle', description: 'Challenge your brain with teasers', embedUrl: 'https://play.gamepix.com/brain-teaser/embed?sid=EE698', emoji: '🧩'},
-
-            // ADVENTURE GAMES (41-60)
-            {id: 41, name: 'Quest Adventure', category: 'Adventure', description: 'Epic quests and adventures await', embedUrl: 'https://play.gamepix.com/quest-adventure/embed?sid=EE698', emoji: '⚔️'},
-            {id: 42, name: 'Lost Temple', category: 'Adventure', description: 'Explore ancient temples', embedUrl: 'https://play.gamepix.com/lost-temple/embed?sid=EE698', emoji: '🏛️'},
-            {id: 43, name: 'Treasure Hunt', category: 'Adventure', description: 'Hunt for hidden treasures', embedUrl: 'https://play.gamepix.com/treasure-hunt/embed?sid=EE698', emoji: '💰'},
-            {id: 44, name: 'Jungle Explorer', category: 'Adventure', description: 'Explore mysterious jungles', embedUrl: 'https://play.gamepix.com/jungle-explorer/embed?sid=EE698', emoji: '🌴'},
-            {id: 45, name: 'Mountain Climb', category: 'Adventure', description: 'Climb treacherous mountains', embedUrl: 'https://play.gamepix.com/mountain-climb/embed?sid=EE698', emoji: '⛰️'},
-            {id: 46, name: 'Ocean Quest', category: 'Adventure', description: 'Dive deep into the ocean', embedUrl: 'https://play.gamepix.com/ocean-quest/embed?sid=EE698', emoji: '🌊'},
-            {id: 47, name: 'Sky Rider', category: 'Adventure', description: 'Fly through the skies', embedUrl: 'https://play.gamepix.com/sky-rider/embed?sid=EE698', emoji: '✈️'},
-            {id: 48, name: 'Desert Quest', category: 'Adventure', description: 'Cross the vast desert', embedUrl: 'https://play.gamepix.com/desert-quest/embed?sid=EE698', emoji: '🏜️'},
-            {id: 49, name: 'Frozen Lands', category: 'Adventure', description: 'Survive in frozen wastelands', embedUrl: 'https://play.gamepix.com/frozen-lands/embed?sid=EE698', emoji: '❄️'},
-            {id: 50, name: 'Volcano Quest', category: 'Adventure', description: 'Escape from an active volcano', embedUrl: 'https://play.gamepix.com/volcano-quest/embed?sid=EE698', emoji: '🌋'},
-            {id: 51, name: 'Cave Explorer', category: 'Adventure', description: 'Explore dark caves', embedUrl: 'https://play.gamepix.com/cave-explorer/embed?sid=EE698', emoji: '🕳️'},
-            {id: 52, name: 'Forest Adventure', category: 'Adventure', description: 'Adventure through enchanted forests', embedUrl: 'https://play.gamepix.com/forest-adventure/embed?sid=EE698', emoji: '🌲'},
-            {id: 53, name: 'Castle Quest', category: 'Adventure', description: 'Explore ancient castles', embedUrl: 'https://play.gamepix.com/castle-quest/embed?sid=EE698', emoji: '🏰'},
-            {id: 54, name: 'Underwater Adventure', category: 'Adventure', description: 'Explore underwater worlds', embedUrl: 'https://play.gamepix.com/underwater-adventure/embed?sid=EE698', emoji: '🐠'},
-            {id: 55, name: 'Space Explorer', category: 'Adventure', description: 'Explore outer space', embedUrl: 'https://play.gamepix.com/space-explorer/embed?sid=EE698', emoji: '🚀'},
-            {id: 56, name: 'Time Travel', category: 'Adventure', description: 'Travel through time', embedUrl: 'https://play.gamepix.com/time-travel/embed?sid=EE698', emoji: '⏰'},
-            {id: 57, name: 'Lost City', category: 'Adventure', description: 'Find the lost city', embedUrl: 'https://play.gamepix.com/lost-city/embed?sid=EE698', emoji: '🏛️'},
-            {id: 58, name: 'Island Adventure', category: 'Adventure', description: 'Survive on a mysterious island', embedUrl: 'https://play.gamepix.com/island-adventure/embed?sid=EE698', emoji: '🏝️'},
-            {id: 59, name: 'Dungeon Crawler', category: 'Adventure', description: 'Crawl through dark dungeons', embedUrl: 'https://play.gamepix.com/dungeon-crawler/embed?sid=EE698', emoji: '🗝️'},
-            {id: 60, name: 'Portal Quest', category: 'Adventure', description: 'Travel through magical portals', embedUrl: 'https://play.gamepix.com/portal-quest/embed?sid=EE698', emoji: '🌀'},
-
-            // STRATEGY GAMES (61-80)
-            {id: 61, name: 'Chess Master', category: 'Strategy', description: 'Play chess against AI', embedUrl: 'https://play.gamepix.com/chess/embed?sid=EE698', emoji: '♟️'},
-            {id: 62, name: 'Tower Defense', category: 'Strategy', description: 'Defend your tower from enemies', embedUrl: 'https://play.gamepix.com/tower-defense/embed?sid=EE698', emoji: '🏰'},
-            {id: 63, name: 'Strategy War', category: 'Strategy', description: 'Wage strategic wars', embedUrl: 'https://play.gamepix.com/strategy-war/embed?sid=EE698', emoji: '🎖️'},
-            {id: 64, name: 'Checkers', category: 'Strategy', description: 'Play classic checkers', embedUrl: 'https://play.gamepix.com/checkers/embed?sid=EE698', emoji: '🔴'},
-            {id: 65, name: 'Solitaire', category: 'Strategy', description: 'Play classic solitaire', embedUrl: 'https://play.gamepix.com/solitaire/embed?sid=EE698', emoji: '🃏'},
-            {id: 66, name: 'Dominoes', category: 'Strategy', description: 'Play dominoes', embedUrl: 'https://play.gamepix.com/dominoes/embed?sid=EE698', emoji: '🎲'},
-            {id: 67, name: 'Connect Four', category: 'Strategy', description: 'Connect four pieces to win', embedUrl: 'https://play.gamepix.com/connect-four/embed?sid=EE698', emoji: '🟡'},
-            {id: 68, name: 'Tic Tac Toe', category: 'Strategy', description: 'Play tic tac toe', embedUrl: 'https://play.gamepix.com/tic-tac-toe/embed?sid=EE698', emoji: '⭕'},
-            {id: 69, name: 'Ludo', category: 'Strategy', description: 'Play the classic board game', embedUrl: 'https://play.gamepix.com/ludo/embed?sid=EE698', emoji: '🎯'},
-            {id: 70, name: 'Carrom', category: 'Strategy', description: 'Play carrom board game', embedUrl: 'https://play.gamepix.com/carrom/embed?sid=EE698', emoji: '🎱'},
-            {id: 71, name: 'City Builder', category: 'Strategy', description: 'Build and manage cities', embedUrl: 'https://play.gamepix.com/city-builder/embed?sid=EE698', emoji: '🏙️'},
-            {id: 72, name: 'Farm Tycoon', category: 'Strategy', description: 'Build and manage farms', embedUrl: 'https://play.gamepix.com/farm-tycoon/embed?sid=EE698', emoji: '🌾'},
-            {id: 73, name: 'Zoo Builder', category: 'Strategy', description: 'Build and manage zoos', embedUrl: 'https://play.gamepix.com/zoo-builder/embed?sid=EE698', emoji: '🦁'},
-            {id: 74, name: 'Restaurant Manager', category: 'Strategy', description: 'Manage restaurants', embedUrl: 'https://play.gamepix.com/restaurant-manager/embed?sid=EE698', emoji: '🍽️'},
-            {id: 75, name: 'Hospital Manager', category: 'Strategy', description: 'Manage hospitals', embedUrl: 'https://play.gamepix.com/hospital-manager/embed?sid=EE698', emoji: '🏥'},
-            {id: 76, name: 'Hotel Manager', category: 'Strategy', description: 'Manage hotels', embedUrl: 'https://play.gamepix.com/hotel-manager/embed?sid=EE698', emoji: '🏨'},
-            {id: 77, name: 'Business Tycoon', category: 'Strategy', description: 'Build a business empire', embedUrl: 'https://play.gamepix.com/business-tycoon/embed?sid=EE698', emoji: '💼'},
-            {id: 78, name: 'Mining Tycoon', category: 'Strategy', description: 'Mine resources and build wealth', embedUrl: 'https://play.gamepix.com/mining-tycoon/embed?sid=EE698', emoji: '⛏️'},
-            {id: 79, name: 'Trading Game', category: 'Strategy', description: 'Trade goods and make profits', embedUrl: 'https://play.gamepix.com/trading-game/embed?sid=EE698', emoji: '📊'},
-            {id: 80, name: 'Empire Builder', category: 'Strategy', description: 'Build an empire', embedUrl: 'https://play.gamepix.com/empire-builder/embed?sid=EE698', emoji: '👑'},
-
-            // SPORTS GAMES (81-100)
-            {id: 81, name: 'Basketball', category: 'Sports', description: 'Play basketball', embedUrl: 'https://play.gamepix.com/basketball/embed?sid=EE698', emoji: '🏀'},
-            {id: 82, name: 'Soccer', category: 'Sports', description: 'Play soccer/football', embedUrl: 'https://play.gamepix.com/soccer/embed?sid=EE698', emoji: '⚽'},
-            {id: 83, name: 'Tennis', category: 'Sports', description: 'Play tennis', embedUrl: 'https://play.gamepix.com/tennis/embed?sid=EE698', emoji: '🎾'},
-            {id: 84, name: 'Golf', category: 'Sports', description: 'Play golf', embedUrl: 'https://play.gamepix.com/golf/embed?sid=EE698', emoji: '⛳'},
-            {id: 85, name: 'Bowling', category: 'Sports', description: 'Play bowling', embedUrl: 'https://play.gamepix.com/bowling/embed?sid=EE698', emoji: '🎳'},
-            {id: 86, name: 'Racing', category: 'Sports', description: 'Race cars', embedUrl: 'https://play.gamepix.com/racing/embed?sid=EE698', emoji: '🏎️'},
-            {id: 87, name: 'Bike Racing', category: 'Sports', description: 'Race bikes', embedUrl: 'https://play.gamepix.com/bike-racing/embed?sid=EE698', emoji: '🏍️'},
-            {id: 88, name: 'Skateboard', category: 'Sports', description: 'Skateboard tricks', embedUrl: 'https://play.gamepix.com/skateboard/embed?sid=EE698', emoji: '🛹'},
-            {id: 89, name: 'Surfing', category: 'Sports', description: 'Surf waves', embedUrl: 'https://play.gamepix.com/surfing/embed?sid=EE698', emoji: '🏄'},
-            {id: 90, name: 'Skiing', category: 'Sports', description: 'Ski down slopes', embedUrl: 'https://play.gamepix.com/skiing/embed?sid=EE698', emoji: '⛷️'},
-            {id: 91, name: 'Archery', category: 'Sports', description: 'Practice archery', embedUrl: 'https://play.gamepix.com/archery/embed?sid=EE698', emoji: '🏹'},
-            {id: 92, name: 'Boxing', category: 'Sports', description: 'Box opponents', embedUrl: 'https://play.gamepix.com/boxing/embed?sid=EE698', emoji: '🥊'},
-            {id: 93, name: 'Wrestling', category: 'Sports', description: 'Wrestling matches', embedUrl: 'https://play.gamepix.com/wrestling/embed?sid=EE698', emoji: '🤼'},
-            {id: 94, name: 'Volleyball', category: 'Sports', description: 'Play volleyball', embedUrl: 'https://play.gamepix.com/volleyball/embed?sid=EE698', emoji: '🏐'},
-            {id: 95, name: 'Badminton', category: 'Sports', description: 'Play badminton', embedUrl: 'https://play.gamepix.com/badminton/embed?sid=EE698', emoji: '🏸'},
-            {id: 96, name: 'Table Tennis', category: 'Sports', description: 'Play table tennis', embedUrl: 'https://play.gamepix.com/table-tennis/embed?sid=EE698', emoji: '🏓'},
-            {id: 97, name: 'Cricket', category: 'Sports', description: 'Play cricket', embedUrl: 'https://play.gamepix.com/cricket/embed?sid=EE698', emoji: '🏏'},
-            {id: 98, name: 'Baseball', category: 'Sports', description: 'Play baseball', embedUrl: 'https://play.gamepix.com/baseball/embed?sid=EE698', emoji: '⚾'},
-            {id: 99, name: 'Horse Racing', category: 'Sports', description: 'Race horses', embedUrl: 'https://play.gamepix.com/horse-racing/embed?sid=EE698', emoji: '🐎'},
-            {id: 100, name: 'Swimming', category: 'Sports', description: 'Competitive swimming', embedUrl: 'https://play.gamepix.com/swimming/embed?sid=EE698', emoji: '🏊'}
+            { id: 1, title: "Cyber Racer", category: "Action", icon: "🏎️", url: "https://www.gamezhero.com/get-game-code/29241" },
+            { id: 2, title: "Neon Blocks", category: "Puzzle", icon: "🧩", url: "https://www.gamezhero.com/get-game-code/29235" },
+            { id: 3, title: "Star Fighter", category: "Action", icon: "🚀", url: "https://www.gamezhero.com/get-game-code/29220" },
+            { id: 4, title: "Forest Quest", category: "Adventure", icon: "🌳", url: "https://www.gamezhero.com/get-game-code/29215" },
+            { id: 5, title: "Mind Master", category: "Strategy", icon: "🧠", url: "https://www.gamezhero.com/get-game-code/29200" },
+            { id: 6, title: "Turbo Soccer", category: "Sports", icon: "⚽", url: "https://www.gamezhero.com/get-game-code/29190" },
+            { id: 7, title: "Dungeon Run", category: "Adventure", icon: "⚔️", url: "https://www.gamezhero.com/get-game-code/29180" },
+            { id: 8, title: "Word Spark", category: "Puzzle", icon: "📝", url: "https://www.gamezhero.com/get-game-code/29170" },
+            { id: 9, title: "Pixel Jump", category: "Action", icon: "👾", url: "https://www.gamezhero.com/get-game-code/29160" },
+            { id: 10, title: "Hex King", category: "Strategy", icon: "👑", url: "https://www.gamezhero.com/get-game-code/29150" },
+            { id: 11, title: "Gravity Ball", category: "Puzzle", icon: "🏀", url: "https://www.gamezhero.com/get-game-code/29140" },
+            { id: 12, title: "Shadow Ninja", category: "Action", icon: "🥷", url: "https://www.gamezhero.com/get-game-code/29130" }
         ];
 
+        // State Management
         let currentCategory = 'All';
-        let currentSearch = '';
-        let currentPage = 'home';
+        let searchQuery = '';
 
-        function showPage(pageName) {
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-            document.getElementById(pageName).classList.add('active');
-            
-            const filterWrapper = document.getElementById('filterWrapper');
-            filterWrapper.style.display = pageName === 'home' ? 'flex' : 'none';
-            
-            // Update nav buttons
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent.toLowerCase().includes(pageName)) {
-                    btn.classList.add('active');
-                }
-            });
+        // DOM Elements
+        const gamesGrid = document.getElementById('gamesGrid');
+        const searchInput = document.getElementById('searchInput');
+        const gameModal = document.getElementById('gameModal');
+        const gameFrame = document.getElementById('gameFrame');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalCategory = document.getElementById('modalCategory');
+        const mainHeader = document.getElementById('mainHeader');
 
-            window.scrollTo(0, 0);
-        }
+        // Header scroll behavior
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) {
+                mainHeader.classList.remove('hide');
+                return;
+            }
+            if (currentScroll > lastScroll && !mainHeader.classList.contains('hide')) {
+                mainHeader.classList.add('hide');
+            } else if (currentScroll < lastScroll && mainHeader.classList.contains('hide')) {
+                mainHeader.classList.remove('hide');
+            }
+            lastScroll = currentScroll;
+        });
 
+        // Initialize Games
         function renderGames() {
-            const grid = document.getElementById('gamesGrid');
-            grid.innerHTML = '';
-
-            const filtered = games.filter(game => {
-                const matchCategory = currentCategory === 'All' || game.category === currentCategory;
-                const matchSearch = game.name.toLowerCase().includes(currentSearch.toLowerCase());
-                return matchCategory && matchSearch;
+            const filteredGames = games.filter(game => {
+                const matchesCategory = currentCategory === 'All' || game.category === currentCategory;
+                const matchesSearch = game.title.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
             });
 
-            if (filtered.length === 0) {
-                grid.innerHTML = '<div class="no-games">No games found. Try a different search!</div>';
+            gamesGrid.innerHTML = '';
+
+            if (filteredGames.length === 0) {
+                gamesGrid.innerHTML = '<div class="no-games">No games found matching your search.</div>';
                 return;
             }
 
-            filtered.forEach(game => {
+            filteredGames.forEach(game => {
                 const card = document.createElement('div');
                 card.className = 'game-card';
+                card.onclick = () => openGame(game);
                 card.innerHTML = `
-                    <div class="game-card-image">${game.emoji}</div>
+                    <div class="game-card-image">${game.icon}</div>
                     <div class="game-card-content">
-                        <h3>${game.name}</h3>
-                        <p>${game.description}</p>
-                        <span class="game-card-category">${game.category}</span>
-                        <button class="play-button" onclick="playGame(${game.id}, '${game.name}', '${game.embedUrl}')">
-                            Play Now
-                        </button>
+                        <h3>${game.title}</h3>
+                        <p>Experience the thrill of ${game.title}! A fantastic ${game.category.toLowerCase()} game that will keep you entertained for hours.</p>
+                        <div class="game-card-footer">
+                            <span class="game-category">${game.category}</span>
+                            <span class="play-btn">Play Now</span>
+                        </div>
                     </div>
                 `;
-                grid.appendChild(card);
+                gamesGrid.appendChild(card);
             });
         }
 
-        function filterCategory(category) {
-            currentCategory = category;
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            renderGames();
-            window.history.pushState({}, '', `?category=${category}`);
-        }
-
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            currentSearch = e.target.value;
+        // Search Handling
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value;
             renderGames();
         });
 
-        function playGame(id, name, embedUrl) {
-            document.getElementById('modalTitle').textContent = name;
-            const container = document.getElementById('gameContainer');
-            container.innerHTML = `
-                <div class="gamepix-responsive">
-                    <iframe 
-                        src="${embedUrl}"
-                        frameborder="0"
-                        scrolling="no"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            `;
-            document.getElementById('gameModal').classList.add('active');
-            window.history.pushState({}, '', `?game=${id}`);
+        // Category Filtering
+        function filterCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.innerText.includes(category));
+            });
+            renderGames();
+        }
+
+        // Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.toggle('active', page.id === pageId);
+            });
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.innerText.toLowerCase().includes(pageId));
+            });
+            
+            // Hide filter wrapper if not on home page
+            const filterWrapper = document.getElementById('filterWrapper');
+            filterWrapper.style.display = pageId === 'home' ? 'flex' : 'none';
+            
+            // Adjust body padding based on header content
+            document.body.style.paddingTop = pageId === 'home' ? '450px' : '350px';
+            
+            window.scrollTo(0, 0);
+        }
+
+        // Modal Functions
+        function openGame(game) {
+            modalTitle.innerText = game.title;
+            modalCategory.innerText = game.category;
+            gameFrame.src = game.url;
+            gameModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeGame() {
-            document.getElementById('gameModal').classList.remove('active');
-            document.getElementById('gameContainer').innerHTML = '';
-            window.history.pushState({}, '', '?');
+            gameModal.style.display = 'none';
+            gameFrame.src = '';
+            document.body.style.overflow = 'auto';
         }
 
-        document.getElementById('gameModal').addEventListener('click', (e) => {
-            if (e.target.id === 'gameModal') {
-                closeGame();
-            }
-        });
-
-        function submitForm() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && subject && message) {
-                alert('Thank you for contacting us! We will get back to you soon at ' + email);
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('subject').value = '';
-                document.getElementById('message').value = '';
-            } else {
-                alert('Please fill all fields');
+        function toggleFullScreen() {
+            if (gameFrame.requestFullscreen) {
+                gameFrame.requestFullscreen();
+            } else if (gameFrame.webkitRequestFullscreen) {
+                gameFrame.webkitRequestFullscreen();
+            } else if (gameFrame.msRequestFullscreen) {
+                gameFrame.msRequestFullscreen();
             }
         }
 
-        window.addEventListener('popstate', () => {
-            const params = new URLSearchParams(window.location.search);
-            const gameId = params.get('game');
-            const category = params.get('category');
-            
-            if (gameId) {
-                const game = games.find(g => g.id == gameId);
-                if (game) {
-                    playGame(game.id, game.name, game.embedUrl);
-                }
-            } else {
+        // Close modal on outside click
+        window.onclick = (event) => {
+            if (event.target === gameModal) {
                 closeGame();
             }
-            
-            if (category) {
-                filterCategory(category);
-            }
-        });
+        };
 
-        // Auto-hide header on scroll
-        let lastScrollTop = 0;
-        const mainHeader = document.getElementById('mainHeader');
-
-        window.addEventListener('scroll', () => {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (currentScroll > lastScrollTop && currentScroll > 100) {
-                // Scrolling DOWN - hide header
-                mainHeader.classList.add('hide');
-            } else {
-                // Scrolling UP - show header
-                mainHeader.classList.remove('hide');
-            }
-            
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        }, { passive: true });
-
+        // Initial Render
         renderGames();
     </script>
 </body>
